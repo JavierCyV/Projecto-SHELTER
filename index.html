@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/styles.css">
+  <title>Proyecto X</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="grid grid-cols-3 items-center bg-black p-4">
+    <!-- Botón hamburguesa a la izquierda -->
+    <div class="flex justify-start">
+      <button class="text-white focus:outline-none">
+        <!-- Ícono hamburguesa (SVG) -->
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+             xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Título centrado -->
+    <div class="flex justify-center">
+      <span class="text-white text-2xl font-bold">SHELTER</span>
+    </div>
+
+    <!-- Botón blanco a la derecha -->
+    <div class="flex justify-end">
+      <button class="bg-transparent text-white border border-white  text-gray-800 px-4 py-2 rounded hover:bg-gray-200 transition duration-300">
+        Reservar Clase
+      </button>
+    </div>
+  </nav>
+
+  <div class="video-container">
+    <video autoplay loop muted>
+        <source src="img/video.mp4" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+    </video>
+    <div class="video-text">Empeza a pedalear por el <br> futuro que queres</div>
+    <button class="video-button bg-transparent text-white border border-white  text-gray-800 px-4 py-2 rounded hover:bg-gray-200 transition duration-300">Reservar Clase</button>" 
+  </div>
+
+  <br><br><br><br><br><br><br><br><br>
+
+  <div class="titulo-chico">THE</div>
+  <div class="titulo-grande">SHELTER EXPERIENCE</div>
+  <div class="texto">
+    SHELTER es un entrenamiento cardiovascular de indoor cycle de alta intensidad, diseñado <br>
+     para desafiarte 50 minutos llenos de energía. Nuestras clases exclusivas combinan <br>
+     escaladas, sprints, coreografías, pesas y nuestro icónico momento conmovedor, todo <br>
+     guiado por instructores que te impulsarán a fortalecer tu cuerpo, mente y alma. <br>
+  </div>
+
+  <br><br><br><br><br><br><br><br><br>
+  <div class="image-buttons-container">
+    <button class="image-button" id="button1">
+      <div class="image-text">Indoor Cycling</div>
+      <div class="light-effect"></div>
+      <img src="img/ale3.jpg" alt="Imagen 1" />
+    </button>
+    <button class="image-button" id="button2">
+       <div class="image-text">Funcional</div>
+      <img src="img/funcional.jpg" alt="Imagen 2" />
+    </button>
+  </div>
+  
+  <br><br><br><br><br><br><br><br><br>
+
+  <div class="flex justify-between items-center  ">
+    <div class="flex flex-col items-center flex-grow">
+      <h2 class="text-center text-xl">En SHELTER nos preoucamos tu bienestar y siempre tenemos <br>un equipo de profesionales dispuestos a ayudarte</h2>
+      <br>
+      <button class="bg-transparent text-white border border-white  text-gray-800 px-4 py-2 rounded hover:bg-gray-200 transition duration-300">
+        CONOCE AL EQUIPO
+      </button>
+    </div>
+    <div class="flex items-left flex-grow">
+      <img src="img/team.jpg" alt="Imagen de ejemplo" class="w-full max-w-[465px] rounded-lg">
+    </div>
+  </div>
+
+  <br><br><br><br><br><br><br><br><br>
+  
+  <div class="flex justify-center items-center w-full  px-4 gap-8">
+    <!-- Columna de imagen (ahora a la izquierda) -->
+    <div class="flex flex-col items-end flex-grow">
+      <img src="img/iphone.webp" alt="Imagen de iPhone" class="w-full max-w-[300px] rounded-lg shadow-lg">
+    </div>
+  
+    <!-- Columna de texto (ahora a la derecha) -->
+    <div class="flex flex-col items-start flex-grow">
+      <h2 class="text-center text-2xl font-semibold mb-4">Descarga la app para trackear tu progreso</h2>
+      <p class="text-center text-lg">Mantén un registro de tu rendimiento y mejora cada día con nuestra app. <br><br></p>
+      <div class="flex gap-4 mb-4">
+        <img src="img/android.png" alt="Imagen 1" class="w-auto h-24 object-cover rounded-lg">
+        <img src="img/iphone.png" alt="Imagen 2" class="w-auto h-24 object-cover rounded-lg">
+      </div>
+    </div>
+  </div>
+  
+  <br><br><br><br><br><br><br><br><br>
+  
+  <div class="container mx-auto p-4">
+    <div class="slider-container">
+      <div class="slider" id="slider">
+        <img src="img/ale1.jpg" alt="Imagen 1">
+        <img src="img/delfi1.jpg" alt="Imagen 2">
+        <img src="img/ale2.jpg" alt="Imagen 3">
+        <img src="img/delfi2.jpg" alt="Imagen 4">
+        <img src="img/ale3.jpg" alt="Imagen 5">
+        <img src="img/ale1.jpg" alt="Imagen 1">
+        <img src="img/delfi1.jpg" alt="Imagen 2">
+        <img src="img/ale2.jpg" alt="Imagen 3">
+        <img src="img/delfi2.jpg" alt="Imagen 4">
+        <img src="img/ale3.jpg" alt="Imagen 5">
+        <img src="img/ale1.jpg" alt="Imagen 1">
+        <img src="img/delfi1.jpg" alt="Imagen 2">
+        <img src="img/ale2.jpg" alt="Imagen 3">
+        <img src="img/delfi2.jpg" alt="Imagen 4">
+        <img src="img/ale3.jpg" alt="Imagen 5">
+      </div>
+    </div>
+  </div>
+
+<script src="scripts/scripts.js"></script>
+</body>
+</html>

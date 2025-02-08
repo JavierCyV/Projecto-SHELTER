@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrusel Infinito con Fade In</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Contenedor que oculta el desbordamiento y aplica una máscara para generar un fade en los bordes */
+    .slider-container {
+      width: 100%;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+    }
+
+    /* Contenedor del slider (flex) */
+    .slider {
+      display: flex;
+      will-change: transform;
+    }
+
+    /* Estilos para cada imagen */
+    .slider img {
+      width: 100px;         /* Tamaño de la imagen */
+      margin-right: 10px;   /* Espacio entre imágenes */
+      border-radius: 8px;
+      opacity: 1;           /* Opacidad inicial */
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div class="container mx-auto p-4">
+    <div class="slider-container">
+      <div class="slider" id="slider">
+        <img src="img/ale1.jpg" alt="Imagen 1">
+        <img src="img/delfi1.jpg" alt="Imagen 2">
+        <img src="img/ale2.jpg" alt="Imagen 3">
+        <img src="img/delfi2.jpg" alt="Imagen 4">
+        <img src="img/ale3.jpg" alt="Imagen 5">
+        <img src="img/ale1.jpg" alt="Imagen 1">
+        <img src="img/delfi1.jpg" alt="Imagen 2">
+        <img src="img/ale2.jpg" alt="Imagen 3">
+        <img src="img/delfi2.jpg" alt="Imagen 4">
+        <img src="img/ale3.jpg" alt="Imagen 5">
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const slider = document.getElementById('slider');
+    // Velocidad en píxeles (puedes ajustarla)
+    let speed = 0.5;
+    let currentOffset = 0;
+
+    function animate() {
+      // Incrementa el desplazamiento y actualiza la posición
+      currentOffset += speed;
+      slider.style.transform = `translateX(-${currentOffset}px)`;
+
+      // Selecciona la primera imagen del slider
+      const firstImage = slider.firstElementChild;
+      if (firstImage) {
+        // Calcula el ancho de la imagen (incluyendo el margen derecho)
+        const imageStyle = getComputedStyle(firstImage);
+        const firstImageWidth = firstImage.offsetWidth + parseInt(imageStyle.marginRight);
+
+        // Si la primera imagen se desplazó completamente fuera de la vista...
+        if (currentOffset >= firstImageWidth) {
+          // La reubica al final del slider
+          slider.appendChild(firstImage);
+          // Resta el ancho de la imagen al desplazamiento acumulado
+          currentOffset -= firstImageWidth;
+          slider.style.transform = `translateX(-${currentOffset}px)`;
+
+          // Aplica efecto fade in:
+          // 1. Establece la opacidad a 0 inmediatamente
+          firstImage.style.opacity = 0;
+          // 2. Elimina cualquier transición previa y fuerza un reflow
+          firstImage.style.transition = 'none';
+          void firstImage.offsetWidth;
+          // 3. Ahora, establece una transición para la opacidad y "anima" hasta opacidad 1
+          firstImage.style.transition = 'opacity 1s ease-out';
+          firstImage.style.opacity = 1;
+        }
+      }
+      // Solicita el siguiente frame de animación
+      requestAnimationFrame(animate);
+    }
+
+    // Inicia la animación
+    animate();
+  </script>
+</body>
+</html>
