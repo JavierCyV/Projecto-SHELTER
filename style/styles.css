@@ -1,126 +1,338 @@
-html, body {
-    background-color: black !important;
-    color: white;
-    margin: 0;
-    height: 100%;
-    min-height: 100vh;
+html,
+body {
+  background-color: black !important;
+  color: white;
+  margin: 0;
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
 }
+/* Estilo para el navbar */
+nav {
+  position: fixed; /* Fija el navbar en la parte superior */
+  top: 0; /* Coloca el navbar en la parte superior de la pantalla */
+  left: 0; /* Asegura que el navbar esté alineado a la izquierda */
+  width: 100%; /* Ocupa todo el ancho de la página */
+  background-color: #000; /* Fondo negro para el navbar */
+  z-index: 1000; /* Asegura que el navbar se superponga a otros elementos */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para efecto de elevación */
+}
+
+body {
+  padding-top: 60px; /* Espacio superior para no tapar el contenido con el navbar */
+  overflow-x: hidden; /* Evita el scroll horizontal */
+}
+
 .video-container {
-    width: 100%;
-    height: 80vh;
-    overflow: hidden;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
 }
 .video-container video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .video-text {
-    position: absolute;
-    text-align: right;
-    top: 30%;
-    right: 10%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 4rem;
-    font-weight: bold;
+  position: absolute;
+  text-align: right;
+  top: 30%;
+  right: 10%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 4rem;
+  font-weight: bold;
+  z-index: 999;
 }
 
 .video-button {
-    position: absolute;
-    justify-content: left;
-    top: 45%;
-    right: 10%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
+  position: absolute;
+  justify-content: left;
+  top: 45%;
+  right: 10%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Aplica la animación a todos los elementos que se deseen animar */
+.titulo-chico,
+.titulo-grande,
+.texto,
+.image-buttons-container {
+  opacity: 0; /* Inicialmente invisible */
+  animation: slideUp 1s forwards; /* Animación para deslizamiento hacia arriba */
+}
+
+/* Animación de deslizamiento */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* Empieza desde abajo */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Llega a la posición original */
+  }
 }
 
 .titulo-chico {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-    text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  animation-delay: 0.8s; /* Tarda un poco más en aparecer */
 }
 
-.titulo-grande {    
-    font-size: 3.5rem;
-    font-weight: bold;    
-    color: white;
-    text-align: center;
+.titulo-grande {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  animation-delay: 1.3s; /* Tarda un poco más en aparecer */
 }
 
 .texto {
-    font-size: 1.2rem;
-    color: white;
-    text-align: center;
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+  animation-delay: 1.6s; /* Tarda un poco más en aparecer */
 }
 
 .image-buttons-container {
-    display: flex;
-    justify-content: center;
-    gap: 400px; /* Espacio entre las imágenes */
-  }
-  
-  .image-button {
-    position: relative;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  .image-button img {
-    width: 400px; /* Ajustado el tamaño de las imágenes */
-    height: 550px; /* Ajustado el tamaño de las imágenes */
-    object-fit: cover;
-    border-radius: 10px; /* Redondea las esquinas */
-    transition: opacity 0.3s ease, filter 0.3s ease;
-    filter: brightness(50%); /* Oscurece la imagen por defecto */
-  }
-  
-  .image-button:hover img {
-    opacity: 1; /* Vuelve la imagen completamente visible */
-    filter: brightness(100%); /* Aclara la imagen al pasar el mouse */
-  }
-  
-  .image-button:active {
-    transform: scale(0.95); /* Efecto de clic (se reduce ligeramente el tamaño) */
-  }
-  
-  .image-text {
-    position: absolute;
-    top: 15%; /* Centra el texto verticalmente */
-    left: 50%; /* Centra el texto horizontalmente */
-    transform: translate(-50%, -50%); /* Ajusta el texto para centrarlo exactamente */
-    color: white;
-    font-size: 2rem; /* Aumenté el tamaño del texto para que sea más visible */
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejorar la visibilidad del texto */
-    pointer-events: none; /* Hace que el texto no interfiera con el clic en la imagen */
-    z-index: 1;
-    white-space: nowrap;
-  }
-  
-  .slider-container {
-    width: 100%;
-    overflow: hidden;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
-  }
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  gap: 300px; /* Espaciado entre las tarjetas */
+  margin-top: 50px; /* Espaciado superior opcional */
+  animation-delay: 1.6s; /* Tarda un poco más en aparecer */
+}
 
-  /* Contenedor del slider (flex) */
-  .slider {
-    display: flex;
-    will-change: transform;
-  }
+.image-button {
+  position: relative;
+  width: 400px;
+  height: 550px;
+  perspective: 1000px;
+  cursor: pointer;
+}
 
-  /* Estilos para cada imagen */
-  .slider img {
-    width: auto;         /* Tamaño de la imagen */
-    height: 200px;
-    margin-right: 10px;   /* Espacio entre imágenes */
-    border-radius: 8px;
-    opacity: 1;           /* Opacidad inicial */
-  }
+.image-button .card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.image-button:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(50%);
+}
+
+.card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.card-back {
+  display: flex;
+  flex-direction: column; /* Esto asegura que los elementos se apilen verticalmente */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.titulo-tarjeta {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px; /* Espacio entre el título y el texto */
+}
+
+.texto-tarjeta {
+  font-size: 0.8rem;
+  color: black;
+  opacity: 0.9;
+  line-height: 1.4;
+  max-width: 90%; /* Asegura que el texto no se desborde */
+  margin: 0 auto; /* Centra el texto */
+}
+
+.image-text {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3); /* Transparente */
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  width: 100%; /* Asegura que ocupe todo el contenedor */
+  text-align: center; /* Centra el texto horizontalmente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-back {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(180deg);
+}
+
+.card-back span {
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+}
+
+/**SLIDER DE IMAGENES**/
+
+.slider-container {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+}
+
+/* Contenedor del slider (flex) */
+.slider {
+  display: flex;
+  will-change: transform;
+  
+}
+
+/* Estilos para cada imagen */
+.slider img {
+  width: 200px;         /* Ocupa el 100% del contenedor */
+  height: 300px;       /* Altura fija */
+  object-fit: cover; 
+  margin-right: 10px; /* Espacio entre imágenes */
+  border-radius: 8px;
+  opacity: 1; /* Opacidad inicial */
+  cursor: pointer;     /* Cambio de cursor al pasar por encima */
+
+}
+
+
+/* Estilos del modal */
+.modal {
+  display: none;       /* Inicialmente oculto */
+  position: fixed;
+  z-index: 9999;
+  left: 50%;
+  top: 50%;
+  height: 50%;         /* Alto del 50% */
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+  transform: translate(-50%, -50%); /* Centra el modal */
+
+  justify-content: center; /* Alinea el contenido al centro horizontalmente */
+  align-items: center; /* Alinea el contenido al centro verticalmente */
+}
+
+/* Contenido del modal (imagen) */
+.modal-content {
+
+  height: 100%;         /* Asegura que el contenido ocupe todo el alto disponible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Imagen del modal */
+.modal img {
+  max-width: 100%;      /* Asegura que la imagen no se desborde */
+  max-height: 100%;     /* Asegura que la imagen no se desborde */
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Botón de cierre */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+/* Estilo para el botón de WhatsApp */
+.whatsapp-button {
+  position: fixed; /* Fijo en la pantalla */
+  bottom: 60px; /* Espaciado desde el fondo de la pantalla */
+  right: 60px; /* Espaciado desde el borde derecho de la pantalla */
+  background-color: #25d366; /* Color de fondo del botón */
+  border-radius: 50%; /* Hace que el botón sea circular */
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para darle un toque de profundidad */
+  z-index: 1000; /* Asegura que el botón se muestre sobre otros elementos */
+}
+
+.whatsapp-button img {
+  width: 50px; /* Tamaño del icono */
+  height: 50px; /* Tamaño del icono */
+}
+
+.whatsapp-button:hover {
+  opacity: 0.8; /* Opacidad cuando el cursor pasa por encima */
+  transition: opacity 0.3s ease;
+}
+
+.texto-animado,
+.imagen-animada {
+  box-sizing: border-box; /* Asegura que los márgenes, bordes y rellenos no afecten el tamaño del contenedor */
+}
+
+.texto-animado,
+.imagen-animada {
+  opacity: 0; /* Inicia invisible */
+  transform: translateX(50%); /* Empieza fuera de la vista */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.texto-animado.animate,
+.imagen-animada.animate {
+  opacity: 1; /* Se vuelve visible */
+  transform: translateX(0); /* Finaliza en la posición original */
+}

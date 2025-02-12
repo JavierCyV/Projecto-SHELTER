@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style/styles.css">
-  <title>Proyecto X</title>
+  <title>Proyecto SHELTER</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
@@ -56,31 +56,61 @@
 
   <br><br><br><br><br><br><br><br><br>
   <div class="image-buttons-container">
-    <button class="image-button" id="button1">
-      <div class="image-text">Indoor Cycling</div>
-      <div class="light-effect"></div>
-      <img src="img/ale3.jpg" alt="Imagen 1" />
-    </button>
-    <button class="image-button" id="button2">
-       <div class="image-text">Funcional</div>
-      <img src="img/funcional.jpg" alt="Imagen 2" />
-    </button>
-  </div>
+    <div class="image-button">
+        <div class="card-inner">
+            <div class="card-front">
+                <img src="img/ale3.jpg" alt="Indoor Cycling">
+                <div class="image-text">INDOOR CYCLING</div>
+            </div>
+            <div class="card-back">
+              <div class="titulo-tarjeta">INDOOR CYCLING</div><br>
+              <div class="texto-tarjeta">Entrenamiento en bicicleta estática que simula recorridos al aire libre, mejorando la resistencia cardiovascular y tonificando piernas y glúteos. Se realiza con música motivadora y un instructor que adapta la intensidad según el nivel de los participantes.</div>
+              <br><br>
+              <button class="bg-transparent text-black border border-black  text-gray-800 px-4 py-2 rounded hover:bg-gray-200 transition duration-300">
+                Reservar
+              </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="image-button">
+        <div class="card-inner">
+            <div class="card-front">
+                <img src="img/funcional.jpg" alt="Funcional">
+                <div class="image-text">FUNCIONAL</div>
+            </div>
+            <div class="card-back">
+              <div class="titulo-tarjeta">FUNCIONAL</div><br>
+              <div class="texto-tarjeta">Entrenamiento basado en movimientos naturales que mejora la fuerza, flexibilidad y resistencia. Se realiza con el propio peso corporal o con equipos, ayudando a mejorar la condición física general.</div>
+              <br>
+              <button class="bg-transparent text-black border border-black  text-gray-800 px-4 py-2 rounded hover:bg-gray-200 transition duration-300">
+                Reservar
+              </button>
+          </div>
+        </div>
+    </div>
+</div>
+
   
   <br><br><br><br><br><br><br><br><br>
-
-  <div class="flex justify-between items-center  ">
-    <div class="flex flex-col items-center flex-grow">
-      <h2 class="text-center text-xl">En SHELTER nos preoucamos tu bienestar y siempre tenemos <br>un equipo de profesionales dispuestos a ayudarte</h2>
+  <div class="flex justify-between items-center">
+    <!-- Columna de texto -->
+    <div class="flex flex-col items-center flex-grow texto-animado">
+      <h2 class="text-center text-xl">
+        En SHELTER nos preocupamos tu bienestar y siempre tenemos <br>un equipo de profesionales dispuestos a ayudarte
+      </h2>
       <br>
-      <button class="bg-transparent text-white border border-white  text-gray-800 px-4 py-2 rounded hover:bg-gray-200 transition duration-300">
+      <button class="bg-transparent text-white border border-white text-gray-800 px-4 py-2 rounded hover:bg-gray-200 transition duration-300">
         CONOCE AL EQUIPO
       </button>
     </div>
-    <div class="flex items-left flex-grow">
+    
+    <!-- Columna de imagen -->
+    <div class="flex items-left flex-grow imagen-animada">
       <img src="img/team.jpg" alt="Imagen de ejemplo" class="w-full max-w-[465px] rounded-lg">
     </div>
   </div>
+  
 
   <br><br><br><br><br><br><br><br><br>
   
@@ -106,25 +136,58 @@
   <div class="container mx-auto p-4">
     <div class="slider-container">
       <div class="slider" id="slider">
-        <img src="img/ale1.jpg" alt="Imagen 1">
-        <img src="img/delfi1.jpg" alt="Imagen 2">
-        <img src="img/ale2.jpg" alt="Imagen 3">
-        <img src="img/delfi2.jpg" alt="Imagen 4">
-        <img src="img/ale3.jpg" alt="Imagen 5">
-        <img src="img/ale1.jpg" alt="Imagen 1">
-        <img src="img/delfi1.jpg" alt="Imagen 2">
-        <img src="img/ale2.jpg" alt="Imagen 3">
-        <img src="img/delfi2.jpg" alt="Imagen 4">
-        <img src="img/ale3.jpg" alt="Imagen 5">
-        <img src="img/ale1.jpg" alt="Imagen 1">
-        <img src="img/delfi1.jpg" alt="Imagen 2">
-        <img src="img/ale2.jpg" alt="Imagen 3">
-        <img src="img/delfi2.jpg" alt="Imagen 4">
-        <img src="img/ale3.jpg" alt="Imagen 5">
+        <img src="img/ale1.jpg" alt="Imagen 1" class="slider-image">
+        <img src="img/delfi1.jpg" alt="Imagen 2" class="slider-image">
+        <img src="img/ale2.jpg" alt="Imagen 3" class="slider-image">
+        <img src="img/delfi2.jpg" alt="Imagen 4" class="slider-image">
+        <img src="img/ale3.jpg" alt="Imagen 5" class="slider-image">
+        <img src="img/ale1.jpg" alt="Imagen 1" class="slider-image">
+        <img src="img/delfi1.jpg" alt="Imagen 2" class="slider-image">
+        <img src="img/ale2.jpg" alt="Imagen 3" class="slider-image">
+        <img src="img/delfi2.jpg" alt="Imagen 4" class="slider-image">
+        <img src="img/ale3.jpg" alt="Imagen 5" class="slider-image">
       </div>
     </div>
   </div>
+  
+  <!-- Modal -->
+  <div id="imageModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img id="modalImage" src="" alt="Imagen grande">
+    </div>
+  </div>
+  
+  
+  <br><br><br><br><br><br><br><br><br>
+  <div class="flex flex-col md:flex-row items-center justify-center gap-8 px-4">
+  
+    <!-- Columna de texto -->
+    <div class="flex flex-col items-center text-center md:items-center md:text-left flex-1">
+      <h2 class="text-2xl font-bold">Visítanos</h2>
+      <p>Estamos ubicados en el corazón de la ciudad, con fácil acceso y estacionamiento disponible.</p>
+      <p>Dirección: Calle Falsa 123, Ciudad</p>
+      <p>Horario: Lunes a Viernes, 8 AM - 10 PM</p>
+    </div>
+  
+    <!-- Columna del mapa -->
+    <div class="flex flex-col items-center flex-1 mr-40">
+      <iframe 
+        class="w-full h-64 md:h-80 rounded-lg"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093727!2d144.95373631531555!3d-37.81627917975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce7e33!2sMelbourne%2C%20Australia!5e0!3m2!1sen!2s!4v1633021476189!5m2!1sen!2s" 
+        allowfullscreen=""
+        loading="lazy">
+      </iframe> 
+    </div>
+  
+  </div>
+  <!-- Botón de WhatsApp -->
+  <a href="https://wa.me/+5491132744021" target="_blank" class="whatsapp-button">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp" />
+  </a>
 
+  
+  <br><br><br><br><br><br><br><br><br>
 <script src="scripts/scripts.js"></script>
 </body>
 </html>
