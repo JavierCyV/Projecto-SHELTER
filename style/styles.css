@@ -1,3 +1,23 @@
+/* Estilo general del scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track (fondo del scrollbar) */
+::-webkit-scrollbar-track {
+  background: #000; /* Negro */
+}
+
+/* Thumb (barra desplazable) */
+::-webkit-scrollbar-thumb {
+  background: #333; /* Gris oscuro */
+  border-radius: 5px;
+}
+
+/* Thumb en hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 html,
 body {
   background-color: black !important;
@@ -301,38 +321,50 @@ body {
 .whatsapp-button {
   position: fixed; /* Fijo en la pantalla */
   bottom: 60px; /* Espaciado desde el fondo de la pantalla */
-  right: 60px; /* Espaciado desde el borde derecho de la pantalla */
+  left: 60px; /* Espaciado desde el borde derecho de la pantalla */
   background-color: #25d366; /* Color de fondo del botón */
-  border-radius: 50%; /* Hace que el botón sea circular */
+  border-radius: 50%;
   padding: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para darle un toque de profundidad */
-  z-index: 1000; /* Asegura que el botón se muestre sobre otros elementos */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+  z-index: 1000; 
 }
 
 .whatsapp-button img {
-  width: 50px; /* Tamaño del icono */
-  height: 50px; /* Tamaño del icono */
+  width: 50px; 
+  height: 50px; 
 }
 
 .whatsapp-button:hover {
-  opacity: 0.8; /* Opacidad cuando el cursor pasa por encima */
+  opacity: 0.8; 
   transition: opacity 0.3s ease;
 }
 
 .texto-animado,
 .imagen-animada {
-  box-sizing: border-box; /* Asegura que los márgenes, bordes y rellenos no afecten el tamaño del contenedor */
+  box-sizing: border-box; 
 }
 
 .texto-animado,
 .imagen-animada {
-  opacity: 0; /* Inicia invisible */
-  transform: translateX(50%); /* Empieza fuera de la vista */
+  opacity: 0; 
+  transform: translateX(50%);
   transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .texto-animado.animate,
 .imagen-animada.animate {
-  opacity: 1; /* Se vuelve visible */
-  transform: translateX(0); /* Finaliza en la posición original */
+  opacity: 1; 
+  transform: translateX(0); 
+}
+
+.bike-container {
+  position: fixed;
+  right: 0px;
+  top: 50px;
+  width: 50px;
+  height: auto;
+  transition: transform 0.1s linear;
+
+
+
 }

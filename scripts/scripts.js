@@ -88,3 +88,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const observerImagen = new IntersectionObserver(callback, opciones);
   observerImagen.observe(imagen);
 });
+
+
+const bike = document.querySelector('.bike-container');
+
+        window.addEventListener('scroll', () => {
+            let scrollPercentage = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            let maxMove = window.innerHeight - 100;
+            let bikePosition = maxMove * scrollPercentage;
+
+            bike.style.transform = `translateY(${bikePosition}px)`;
+        });
